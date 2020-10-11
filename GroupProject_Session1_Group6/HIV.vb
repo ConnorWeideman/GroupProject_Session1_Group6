@@ -11,6 +11,13 @@ Public Class HIV
     Private _blood As Integer
     Private _sexual As Integer
 
+    Public Sub New(initInfected As Integer)
+        MyBase.New(initInfected)
+        _blood = 0
+        _sexual = 0
+        _haveAids = 0
+    End Sub
+
     Public Property haveAids() As Integer
         Get
             Return _haveAids

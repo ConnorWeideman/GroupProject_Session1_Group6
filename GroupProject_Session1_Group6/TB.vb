@@ -18,6 +18,12 @@ Public Class TB
     Private _percentActive As Double
     Private _areActive As Integer
 
+    Public Sub New(initInfected As Integer)
+        MyBase.New(initInfected)
+        _percentActive = 0.0
+        _areActive = 0
+    End Sub
+
     Public Property percentActive() As Double
         Get
             Return _percentActive

@@ -12,6 +12,12 @@ Public Class Malaria
     Private _spray As Integer
     Private _injection As Integer
 
+    Public Sub New(initInfected As Integer)
+        MyBase.New(initInfected)
+        _Net = 0
+        _spray = 0
+        _injection = 0
+    End Sub
     Public Property net() As Integer
         Get
             Return _Net

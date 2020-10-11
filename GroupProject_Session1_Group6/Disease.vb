@@ -17,7 +17,10 @@ Public MustInherit Class Disease
     '</Variables
 
     Public Sub New(initInfected As Integer) 'Contructor
-        Infected = MakePos(initInfected)
+        _infected = MakePos(initInfected)
+        _deaths = 0
+        _recovered = 0
+        _totalDeaths = 0
     End Sub '</New>
 
     Public Enum symtoms
