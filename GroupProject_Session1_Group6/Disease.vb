@@ -14,13 +14,28 @@ Public MustInherit Class Disease
     '<Variables>
     Protected _infected, _deaths, _recovered As Integer
     Protected Shared _totalDeaths As Integer
-    Protected _symptoms() As String 'How many symptoms are we going  to have?
-    Protected _worstCountry As String
     '</Variables
 
     Public Sub New(initInfected As Integer) 'Contructor
-        Infected = initInfected
+        Infected = MakePos(initInfected)
     End Sub '</New>
+
+    Public Enum symtoms
+        sneezing
+        coughing
+        fever
+        headache
+        stomachPain
+        fatigue
+        sweating
+        nausea
+        anemia
+        chills
+        malaise
+        diorrhea
+        chestPain
+        weightLoss
+    End Enum
 
     '<Properties>
     Public Property Infected() As Integer
@@ -55,38 +70,13 @@ Public MustInherit Class Disease
             _totalDeaths = value
         End Set
     End Property '</TotalDeaths>
-    Public Property Symptoms() As String()
-        Get
-            Return _symptoms
-        End Get
-        Set(value As String())
-            _symptoms = value
-        End Set
-    End Property '</Symptoms> whole array
-    Public Property Symptoms(index As Integer) As String
-        Get
-            Return _symptoms(index)
-        End Get
-        Set(value As String)
-            _symptoms(index) = value
-        End Set
-    End Property '</Symptoms> single value
-    Public Property WorstCountry() As String
-        Get
-            Return _worstCountry
-        End Get
-        Set(value As String)
-            _worstCountry = value
-        End Set
-    End Property '</WorstCountry>
     '</Properties>
 
-    Protected Overridable Function CalcMortalityRate() As Double
-        'TODO
-        Return 0.0
-    End Function '</CalcMortalityRate>
+    'Protected Overridable Function CalcMortalityRate() As Double 'we dont need this because we just need to divide deaths by the number of days
+    ' Return 0.0
+    'End Function '</CalcMortalityRate>
     Protected Function CalcInfected() As Integer
-        'TODO
+        _infected -= _deaths + _recovered
         Return Infected
     End Function '</CaclInfected>
     Private Function MakePos(num As Integer) As Integer
