@@ -7,7 +7,7 @@ Option Infer Off
 ' Team Member 1 Details: Weideman, C (220145487)
 ' Team Member 2 Details: Gerber, JD (220052458)
 ' Team Member 3 Details: Karner, Michael (217028123)
-' Team Member 4 Details: e.g. Smith, J (202000001)
+' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
 ' Class name: Form1
 ' *****************************************************************
