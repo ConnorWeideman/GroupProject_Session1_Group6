@@ -12,7 +12,7 @@ Option Infer Off
 ' Class name: HIV
 ' *****************************************************************
 
-Public Class HIV
+<Serializable()> Public Class HIV
     Inherits Disease
 
     'Variables 
@@ -59,7 +59,7 @@ Public Class HIV
 
     'Display All Data
     Public Overrides Function display() As String
-        Dim temp as String
+        Dim temp As String
 
         temp = "Common Symptoms: " & vbNewLine & "Fever, Sore Throat, Headache, Fatigue" & vbNewLine _
             & "Currect Infected Patients: " & _infected & vbNewLine _

@@ -14,7 +14,7 @@ Option Explicit On
 Option Infer Off
 
 
-Public Class Malaria
+<Serializable()> Public Class Malaria
     Inherits Disease
 
     'Variables 

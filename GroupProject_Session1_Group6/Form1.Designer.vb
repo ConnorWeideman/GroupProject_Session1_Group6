@@ -45,6 +45,7 @@ Partial Class Form1
         Me.txtDisplay.Location = New System.Drawing.Point(12, 86)
         Me.txtDisplay.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDisplay.Name = "txtDisplay"
+        Me.txtDisplay.ReadOnly = True
         Me.txtDisplay.Size = New System.Drawing.Size(412, 542)
         Me.txtDisplay.TabIndex = 1
         Me.txtDisplay.Text = ""

@@ -12,7 +12,7 @@ Option Explicit On
 Option Strict On
 Option Infer Off
 
-Public Class TB
+<Serializable()> Public Class TB
     Inherits Disease
     'Variables
     Private _areActive As Integer
@@ -47,7 +47,7 @@ Public Class TB
             & "Deaths for TB: " & _deaths & vbNewLine _
             & "Recovered from TB: " & _recovered & vbNewLine _
             & "Active TB Cases: " & _areActive & vbNewLine _
-            & "Percentage of Cases that are Active: " & Format(CalcPercentActive(), "0,00")
+            & "Percentage of Cases that are Active: " & Format(CalcPercentActive(), "0.##")
         Return temp
     End Function
 End Class

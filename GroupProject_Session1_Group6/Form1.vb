@@ -64,13 +64,14 @@ Public Class Form1
                     disease = "TB"
                 End If
 
-                newInfected = CInt(InputBox("In week " + CStr(i) + " how many people were infected with " + disease + "?"))
-                recovered = CInt(InputBox("In week " + CStr(i) + " how many people recovered from " + disease + "?"))
-                deaths = CInt(InputBox("In week " + CStr(i) + " how many people died from " + disease + "?"))
+                newInfected = CInt(InputBox("In week " + CStr(i) + " how many more people were infected with " + disease + "?"))
+                recovered = CInt(InputBox("In week " + CStr(i) + " how many more people recovered from " + disease + "? (Cannot be more than Infected People)"))
+                deaths = CInt(InputBox("In week " + CStr(i) + " how many more people died from " + disease + "? (Cannot be more than Infected People)"))
 
                 Diseases(i1).Infected += newInfected
                 Diseases(i1).Recovered += recovered
                 Diseases(i1).Deaths += deaths
+                Diseases(i1).TotalDeaths += deaths
 
             Next
 
@@ -131,6 +132,10 @@ Public Class Form1
 
         Next
 
+        Diseases(D.HIV).CalcInfected()
+        Diseases(D.Malaria).CalcInfected()
+        Diseases(D.TB).CalcInfected()
+
         'Calc Worst
         Dim worstMortality As Double = 0
         Dim currentMortality As Double
@@ -149,14 +154,18 @@ Public Class Form1
 
         Next
 
+        Dim worstText As String
+
         'Display Worst
         If worstIndex = 0 Then
-            txtWorst.Text = "HIV"
+            worstText = "HIV"
         ElseIf worstIndex = 1 Then
-            txtWorst.Text = "Malaria"
+            worstText = "Malaria"
         ElseIf worstIndex = 2 Then
-            txtWorst.Text = "TB"
+            worstText = "TB"
         End If
+
+        txtWorst.Text = worstText
 
         'Display Data
         txtDisplay.Text = "HIV:" & NL _
@@ -179,6 +188,9 @@ Public Class Form1
         BF.Serialize(FS, Diseases)
 
         FS.Close()
+
+        'Warn
+        MsgBox("Please be aware of the worst Disease: " + worstText)
 
     End Sub
 
