@@ -1,7 +1,17 @@
-﻿Option Strict On
+﻿' *****************************************************************
+' Team Number: 6
+' Team Member 1 Details: Gerber, J 220052458
+' Team Member 2 Details: Orlando, D 220004186
+' Team Member 3 Details: Karner, M 217028123
+' Team Member 4 Details: Weideman, C 220145487
+' Practical: Team Project
+' Class name: Malaria
+' *****************************************************************
+
+
+Option Strict On
 Option Explicit On
 Option Infer Off
-
 
 
 Public Class Malaria
@@ -47,6 +57,16 @@ Public Class Malaria
 
 
     Public Overrides Function display() As String
-        Throw New NotImplementedException()
+        Dim temp as String
+
+        temp = "Common Symptoms: " & vbNewLine & "Fever, Naseua, Anaemia, Diarrhoea" & vbNewLine _
+            & "Currect Infected Patients: " & _infected & vbNewLine _
+            & "Deaths for Malaria: " & _deaths & vbNewLine _
+            & "Recovered from Malaria: " & _recovered & vbNewLine _
+            & "People that used nets as prevention: " & _Net & vbNewLine _
+            & "People that used bug spray as prevention: " & _spray & vbNewLine _
+            & "People that used anti-malaria injection as prevention: " & _injection & vbNewLine
+
+        Return temp
     End Function
 End Class
