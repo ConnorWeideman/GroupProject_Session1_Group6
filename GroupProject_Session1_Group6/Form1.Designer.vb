@@ -22,10 +22,63 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.btnStart = New System.Windows.Forms.Button()
+        Me.txtDisplay = New System.Windows.Forms.RichTextBox()
+        Me.txtWorst = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'btnStart
+        '
+        Me.btnStart.Location = New System.Drawing.Point(143, 12)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(141, 68)
+        Me.btnStart.TabIndex = 0
+        Me.btnStart.Text = "Start"
+        Me.btnStart.UseVisualStyleBackColor = True
+        '
+        'txtDisplay
+        '
+        Me.txtDisplay.Location = New System.Drawing.Point(12, 86)
+        Me.txtDisplay.Name = "txtDisplay"
+        Me.txtDisplay.Size = New System.Drawing.Size(412, 542)
+        Me.txtDisplay.TabIndex = 1
+        Me.txtDisplay.Text = ""
+        '
+        'txtWorst
+        '
+        Me.txtWorst.Location = New System.Drawing.Point(12, 692)
+        Me.txtWorst.Name = "txtWorst"
+        Me.txtWorst.Size = New System.Drawing.Size(412, 22)
+        Me.txtWorst.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(182, 652)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(104, 17)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Worst Disease:"
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(436, 726)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtWorst)
+        Me.Controls.Add(Me.txtDisplay)
+        Me.Controls.Add(Me.btnStart)
+        Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
 
+    Friend WithEvents btnStart As Button
+    Friend WithEvents txtDisplay As RichTextBox
+    Friend WithEvents txtWorst As TextBox
+    Friend WithEvents Label1 As Label
 End Class
