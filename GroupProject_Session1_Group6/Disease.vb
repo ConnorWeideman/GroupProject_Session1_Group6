@@ -38,6 +38,7 @@ Public MustInherit Class Disease
         End Get
         Set(value As Integer)
             _deaths = value
+            _totalDeaths += _deaths
         End Set
     End Property '</Deaths>
     Public Property Recovered() As Integer
