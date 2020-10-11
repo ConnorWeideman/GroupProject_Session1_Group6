@@ -21,18 +21,26 @@ Public Class Form1
     Private numWeeks As Integer
     Private Const NL As String = vbNewLine
 
+    Private Enum D
+        HIV = 0
+        Malaria = 1
+        TB = 2
+    End Enum
+
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
 
         numWeeks = CInt(InputBox("How many weeks would you like to track the diseases for?"))
 
-        'Setup Diseases
-        Diseases(0) = New HIV
-        Diseases(1) = New Malaria
-        Diseases(2) = New TB
+        Dim initHIV, initMal, initTB As Integer
 
-        Diseases(0).Infected = CInt(InputBox("How many are initially infected with HIV at the start of tracking?"))
-        Diseases(1).Infected = CInt(InputBox("How many are initially infected with Malaria at the start of tracking?"))
-        Diseases(2).Infected = CInt(InputBox("How many are initially infected with TB at the start of tracking?"))
+        initHIV = CInt(InputBox("How many are initially infected with HIV at the start of tracking?"))
+        initMal = CInt(InputBox("How many are initially infected with Malaria at the start of tracking?"))
+        initTB = CInt(InputBox("How many are initially infected with TB at the start of tracking?"))
+
+        'Setup Diseases
+        Diseases(D.HIV) = New HIV(initHIV)
+        Diseases(D.Malaria) = New Malaria(initMal)
+        Diseases(D.TB) = New TB(initTB)
 
         'Each Week Input
         For i As Integer = 1 To numWeeks
@@ -43,11 +51,11 @@ Public Class Form1
                 Dim deaths, newInfected, recovered As Integer
                 Dim disease As String
 
-                If (i1 = 0) Then
+                If (i1 = D.HIV) Then
                     disease = "HIV"
-                ElseIf (i1 = 1) Then
+                ElseIf (i1 = D.Malaria) Then
                     disease = "Malaria"
-                ElseIf (i1 = 2) Then
+                ElseIf (i1 = D.TB) Then
                     disease = "TB"
                 End If
 
@@ -67,52 +75,52 @@ Public Class Form1
             Dim tempTB As TB
 
             'HIV
-            tempHIV = TryCast(Diseases(0), HIV)
-            If (tempHIV) Then
+            tempHIV = TryCast(Diseases(D.HIV), HIV)
+            If Not (tempHIV Is Nothing) Then
 
                 Dim haveAids, blood, sexual As Integer
 
                 haveAids = CInt(InputBox("In week " + CStr(i) + " how many new people were diagnosed with AIDS?"))
                 blood = CInt(InputBox("Of those infected with HIV in week " + CStr(i) + ", how many people were infected through blood?"))
-                sexual = CInt(InputBox("Of those infected with HIV in week " + CStr(i) + " how many people were infected through sexual contact?"))
+                sexual = CInt(InputBox("Of those infected with HIV in week " + CStr(i) + ", how many people were infected through sexual contact?"))
 
                 tempHIV.haveAids += haveAids
-                tempHIV.Blood += blood
-                tempHIV.Sexual += sexual
+                tempHIV.blood += blood
+                tempHIV.sexual += sexual
 
-                Diseases(0) = tempHIV
+                Diseases(D.HIV) = tempHIV
 
             End If
 
             'Malaria
-            tempMalaria = TryCast(Diseases(1), Malaria)
-            If (tempMalaria) Then
+            tempMalaria = TryCast(Diseases(D.Malaria), Malaria)
+            If Not (tempMalaria Is Nothing) Then
 
                 Dim net, spray, injection As Integer
 
-                net = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + " how many people were using a mosquito net?"))
-                spray = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + " how many people were using a mosquito repellent spray?"))
-                injection = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + " how many people had the Malaria injection?"))
+                net = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + ", how many people were using a mosquito net?"))
+                spray = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + ", how many people were using a mosquito repellent spray?"))
+                injection = CInt(InputBox("Of those infected with Malaria in week " + CStr(i) + ", how many people had the Malaria injection?"))
 
-                tempMalaria.Net += net
-                tempMalaria.Spray += spray
-                tempMalaria.Injection += injection
+                tempMalaria.net += net
+                tempMalaria.spray += spray
+                tempMalaria.injection += injection
 
-                Diseases(1) = tempMalaria
+                Diseases(D.Malaria) = tempMalaria
 
             End If
 
             'TB
-            tempTB = TryCast(Diseases(2), TB)
-            If (tempTB) Then
+            tempTB = TryCast(Diseases(D.TB), TB)
+            If Not (tempTB Is Nothing) Then
 
                 Dim active As Integer
 
-                active = CInt(InputBox("Of those infected with TB in week " + CStr(i) + " how many people have active TB?"))
+                active = CInt(InputBox("Of those infected with TB in week " + CStr(i) + ", how many people have active TB?"))
 
                 tempTB.areActive += active
 
-                Diseases(2) = tempTB
+                Diseases(D.TB) = tempTB
 
             End If
 
@@ -147,11 +155,14 @@ Public Class Form1
 
         'Display Data
         txtDisplay.Text = "HIV:" & NL _
-            & Diseases(0).display() & NL & NL _
+            & Diseases(D.HIV).display() & NL & NL _
             & "Malaria:" & NL _
-            & Diseases(1).display() & NL & NL _
+            & Diseases(D.Malaria).display() & NL & NL _
             & "TB:" & NL _
-            & Diseases(2).display()
+            & Diseases(D.TB).display()
+
+        'Display Deaths
+        txtDeaths.Text = CStr(Diseases(D.HIV).TotalDeaths)
 
         'Save To File
         Dim FS As FileStream
