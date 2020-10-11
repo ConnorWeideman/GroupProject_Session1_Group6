@@ -72,9 +72,9 @@ Public MustInherit Class Disease
     End Property '</TotalDeaths>
     '</Properties>
 
-    'Protected Overridable Function CalcMortalityRate() As Double 'we dont need this because we just need to divide deaths by the number of days
-    ' Return 0.0
-    'End Function '</CalcMortalityRate>
+    Protected Overridable Function CalcMortalityRate() As Double 'we dont need this because we just need to divide deaths by the number of days
+        Return Deaths / (Recovered + Infected) * 100
+    End Function '</CalcMortalityRate>
     Protected Function CalcInfected() As Integer
         _infected -= _deaths + _recovered
         Return Infected
