@@ -5,7 +5,7 @@
 ' Team Member 3 Details: Karner, MCR (217028123)
 ' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
-' Class name: Form1
+' Class name: TB
 ' *****************************************************************
 
 Option Explicit On
@@ -17,6 +17,7 @@ Public Class TB
     'Variables
     Private _areActive As Integer
 
+    'Constructor
     Public Sub New(initInfected As Integer)
         MyBase.New(initInfected)
         _areActive = 0
@@ -45,8 +46,8 @@ Public Class TB
             & "Currect Infected Patients: " & _infected & vbNewLine _
             & "Deaths for TB: " & _deaths & vbNewLine _
             & "Recovered from TB: " & _recovered & vbNewLine _
-            & "TB cases that are active " & _areActive & vbNewLine _
-            & "Percentage that are active " & Format(CalcPercentActive(), "0,00")
+            & "Active TB Cases: " & _areActive & vbNewLine _
+            & "Percentage of Cases that are Active: " & Format(CalcPercentActive(), "0,00")
         Return temp
     End Function
 End Class

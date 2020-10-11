@@ -1,16 +1,4 @@
-﻿
-' *****************************************************************
-' Team Number: 6
-' Team Member 1 Details: Gerber, J 220052458
-' Team Member 2 Details: Orlando, D 220004186
-' Team Member 3 Details: Karner, M 217028123
-' Team Member 4 Details: Weideman, C 220145487
-' Practical: Team Project
-' Class name: HIV
-' *****************************************************************
-
-
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 Option Infer Off
 
@@ -21,7 +9,7 @@ Option Infer Off
 ' Team Member 3 Details: Karner, Michael (217028123)
 ' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
-' Class name: Form1
+' Class name: HIV
 ' *****************************************************************
 
 Public Class HIV
@@ -32,6 +20,7 @@ Public Class HIV
     Private _blood As Integer
     Private _sexual As Integer
 
+    'Constructor
     Public Sub New(initInfected As Integer)
         MyBase.New(initInfected)
         _blood = 0
@@ -39,6 +28,7 @@ Public Class HIV
         _haveAids = 0
     End Sub
 
+    'Property Methods
     Public Property haveAids() As Integer
         Get
             Return _haveAids
@@ -65,7 +55,9 @@ Public Class HIV
             _sexual = value
         End Set
     End Property
+    'End Properties
 
+    'Display All Data
     Public Overrides Function display() As String
         Dim temp as String
 

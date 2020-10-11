@@ -17,20 +17,25 @@ Imports System.Runtime.Serialization.Formatters.Binary
 
 Public Class Form1
 
+    'Variables Including Constant
     Private Diseases(2) As Disease
     Private numWeeks As Integer
     Private Const NL As String = vbNewLine
 
+    'Enumerator
     Private Enum D
         HIV = 0
         Malaria = 1
         TB = 2
     End Enum
 
+    'On Button Click
     Private Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
 
+        'Weeks Tracked
         numWeeks = CInt(InputBox("How many weeks would you like to track the diseases for?"))
 
+        'Disease Initial States
         Dim initHIV, initMal, initTB As Integer
 
         initHIV = CInt(InputBox("How many are initially infected with HIV at the start of tracking?"))

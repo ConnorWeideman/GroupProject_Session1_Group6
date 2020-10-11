@@ -5,7 +5,7 @@
 ' Team Member 3 Details: Karner, Michael (217028123)
 ' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
-' Class name: Form1
+' Class name: Disease
 ' *****************************************************************
 Option Strict On
 Option Explicit On

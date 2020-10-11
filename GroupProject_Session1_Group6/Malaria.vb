@@ -22,12 +22,15 @@ Public Class Malaria
     Private _spray As Integer
     Private _injection As Integer
 
+    'Constructor
     Public Sub New(initInfected As Integer)
         MyBase.New(initInfected)
         _Net = 0
         _spray = 0
         _injection = 0
     End Sub
+
+    'Property Methods
     Public Property net() As Integer
         Get
             Return _Net
@@ -54,10 +57,11 @@ Public Class Malaria
             _injection = value
         End Set
     End Property
+    'End of Properties
 
-
+    'Display All Data
     Public Overrides Function display() As String
-        Dim temp as String
+        Dim temp As String
 
         temp = "Common Symptoms: " & vbNewLine & "Fever, Naseua, Anaemia, Diarrhoea" & vbNewLine _
             & "Currect Infected Patients: " & _infected & vbNewLine _
