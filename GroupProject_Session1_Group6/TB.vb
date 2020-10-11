@@ -2,7 +2,7 @@
 ' Team Number: assigned to team 6
 ' Team Member 1 Details: Weideman, C (220145487)
 ' Team Member 2 Details: Gerber, JD (220052458)
-' Team Member 3 Details: Karner, Michael (217028123)
+' Team Member 3 Details: Karner, MCR (217028123)
 ' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
 ' Class name: Form1
@@ -15,25 +15,20 @@ Option Infer Off
 Public Class TB
     Inherits Disease
     'Variables
-    Private _percentActive As Double
     Private _areActive As Integer
 
     Public Sub New(initInfected As Integer)
         MyBase.New(initInfected)
-        _percentActive = 0.0
         _areActive = 0
     End Sub
 
-    Public Property percentActive() As Double
-        Get
-            Return _percentActive
-        End Get
-        Set(value As Double)
-            _percentActive = value
-        End Set
-    End Property
+    Private Function CalcPercentActive() As Double
+        'Calculating Percentage of active TB patients
+        Return _areActive / _infected * 100
 
-    Public Property areActive() As Integer
+    End Function
+
+    Public Property areActive() As Integer 'Property method
         Get
             Return _areActive
         End Get
@@ -43,9 +38,15 @@ Public Class TB
     End Property
 
     Public Overrides Function display() As String
+        'Displaying the data
+        Dim temp As String
 
-
-
-        Throw New NotImplementedException()
+        temp = "Common Symptoms: " & vbNewLine & "Fever, Cough, Night chills, Chest pain " & vbNewLine _
+            & "Currect Infected Patients: " & _infected & vbNewLine _
+            & "Deaths for TB: " & _deaths & vbNewLine _
+            & "Recovered from TB: " & _recovered & vbNewLine _
+            & "TB cases that are active " & _areActive & vbNewLine _
+            & "Percentage that are active " & Format(CalcPercentActive(), "0,00")
+        Return temp
     End Function
 End Class
