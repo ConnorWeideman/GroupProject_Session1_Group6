@@ -12,7 +12,7 @@ Option Infer Off
 ' Class name: HIV
 ' *****************************************************************
 
-Public Class HIV
+<Serializable()> Public Class HIV
     Inherits Disease
 
     'Variables 
@@ -20,6 +20,7 @@ Public Class HIV
     Private _blood As Integer
     Private _sexual As Integer
 
+    'Constructor
     Public Sub New(initInfected As Integer)
         MyBase.New(initInfected)
         _blood = 0
@@ -27,6 +28,7 @@ Public Class HIV
         _haveAids = 0
     End Sub
 
+    'Property Methods
     Public Property haveAids() As Integer
         Get
             Return _haveAids
@@ -53,8 +55,20 @@ Public Class HIV
             _sexual = value
         End Set
     End Property
+    'End Properties
 
+    'Display All Data
     Public Overrides Function display() As String
-        Throw New NotImplementedException()
+        Dim temp As String
+
+        temp = "Common Symptoms: " & vbNewLine & "Fever, Sore Throat, Headache, Fatigue" & vbNewLine _
+            & "Currect Infected Patients: " & _infected & vbNewLine _
+            & "Deaths for HIV: " & _deaths & vbNewLine _
+            & "Recovered from HIV: " & _recovered & vbNewLine _
+            & "HIV Patients that have aids: " & _haveAids & vbNewLine _
+            & "Infected by blood contact: " & _blood & vbNewLine _
+            & "Infected by sexual contacts: " & _sexual & vbNewLine
+
+        Return temp
     End Function
 End Class

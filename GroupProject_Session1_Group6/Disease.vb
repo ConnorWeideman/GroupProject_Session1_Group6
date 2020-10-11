@@ -10,7 +10,8 @@
 Option Strict On
 Option Explicit On
 Option Infer Off
-Public MustInherit Class Disease
+
+<Serializable()> Public MustInherit Class Disease
     '<Variables>
     Protected _infected, _deaths, _recovered As Integer
     Protected Shared _totalDeaths As Integer
@@ -29,7 +30,7 @@ Public MustInherit Class Disease
             Return _infected
         End Get
         Set(value As Integer)
-            _infected = value
+            _infected = MakePos(value)
         End Set
     End Property '</Infected>
     Public Property Deaths() As Integer
@@ -37,8 +38,7 @@ Public MustInherit Class Disease
             Return _deaths
         End Get
         Set(value As Integer)
-            _deaths = value
-            _totalDeaths += _deaths
+            _deaths = MakePos(value)
         End Set
     End Property '</Deaths>
     Public Property Recovered() As Integer
@@ -46,7 +46,7 @@ Public MustInherit Class Disease
             Return _recovered
         End Get
         Set(value As Integer)
-            _recovered = value
+            _recovered = MakePos(value)
         End Set
     End Property '</Recovered>
     Public Property TotalDeaths() As Integer
@@ -54,7 +54,7 @@ Public MustInherit Class Disease
             Return _totalDeaths
         End Get
         Set(value As Integer)
-            _totalDeaths = value
+            _totalDeaths = MakePos(value)
         End Set
     End Property '</TotalDeaths>
     '</Properties>
@@ -63,7 +63,7 @@ Public MustInherit Class Disease
         'Percentage that have died out of the amount of those that have been infected by the disease
         Return Deaths / (Recovered + Infected) * 100
     End Function '</CalcMortalityRate>
-    Protected Function CalcInfected() As Integer
+    Public Function CalcInfected() As Integer
         'calculates the number of infected individuals as each day the infected individuals is incremented but never decreased when individuals die or recover
         _infected -= MakePos(_deaths + _recovered)
         Return Infected
