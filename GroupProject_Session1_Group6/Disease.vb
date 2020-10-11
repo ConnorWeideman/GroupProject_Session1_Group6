@@ -1,11 +1,11 @@
 ﻿' *****************************************************************
-' Team Number: 6
-' Team Member 1 Details: Gerber, Josh 220052458
-' Team Member 2 Details: Surname, Initials (Student #)
-' Team Member 3 Details: Surname, Initials (Student #)
+' Team Number: assigned to team 6
+' Team Member 1 Details: Weideman, C (220145487)
+' Team Member 2 Details: Gerber, JD (220052458)
+' Team Member 3 Details: Karner, Michael (217028123)
 ' Team Member 4 Details: e.g. Smith, J (202000001)
 ' Practical: Team Project
-' Class name: Disease
+' Class name: Form1
 ' *****************************************************************
 Option Strict On
 Option Explicit On
@@ -22,23 +22,6 @@ Public MustInherit Class Disease
         _recovered = 0
         _totalDeaths = 0
     End Sub '</New>
-
-    Public Enum symtoms
-        sneezing
-        coughing
-        fever
-        headache
-        stomachPain
-        fatigue
-        sweating
-        nausea
-        anemia
-        chills
-        malaise
-        diorrhea
-        chestPain
-        weightLoss
-    End Enum
 
     '<Properties>
     Public Property Infected() As Integer
@@ -75,10 +58,12 @@ Public MustInherit Class Disease
     End Property '</TotalDeaths>
     '</Properties>
 
-    Protected Overridable Function CalcMortalityRate() As Double 'we dont need this because we just need to divide deaths by the number of days
+    Public Overridable Function CalcMortalityRate() As Double
+        'Percentage that have died out of the amount of those that have been infected by the disease
         Return Deaths / (Recovered + Infected) * 100
     End Function '</CalcMortalityRate>
     Protected Function CalcInfected() As Integer
+        'calculates the number of infected individuals as each day the infected individuals is incremented but never decreased when individuals die or recover
         _infected -= _deaths + _recovered
         Return Infected
     End Function '</CaclInfected>

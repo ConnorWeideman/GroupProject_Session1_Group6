@@ -5,8 +5,8 @@ Option Infer Off
 ' *****************************************************************
 ' Team Number: assigned to team 6
 ' Team Member 1 Details: Weideman, C (220145487)
-' Team Member 2 Details: Surname, Initials (Student #)
-' Team Member 3 Details: Surname, Initials (Student #)
+' Team Member 2 Details: Gerber, JD (220052458)
+' Team Member 3 Details: Karner, Michael (217028123)
 ' Team Member 4 Details: e.g. Smith, J (202000001)
 ' Practical: Team Project
 ' Class name: Form1
@@ -77,8 +77,8 @@ Public Class Form1
                 sexual = CInt(InputBox("Of those infected with HIV in week " + CStr(i) + " how many people were infected through sexual contact?"))
 
                 tempHIV.haveAids += haveAids
-                tempHIV.Blood += blood
-                tempHIV.Sexual += sexual
+                tempHIV.blood += blood
+                tempHIV.sexual += sexual
 
                 Diseases(0) = tempHIV
 
