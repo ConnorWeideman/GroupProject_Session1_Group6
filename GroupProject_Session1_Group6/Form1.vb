@@ -147,11 +147,11 @@ Public Class Form1
 
         'Display Data
         txtDisplay.Text = "HIV:" & NL _
-            & Diseases(0).Display() & NL & NL _
+            & Diseases(0).display() & NL & NL _
             & "Malaria:" & NL _
-            & Diseases(1).Display() & NL & NL _
+            & Diseases(1).display() & NL & NL _
             & "TB:" & NL _
-            & Diseases(2).Display()
+            & Diseases(2).display()
 
         'Save To File
         Dim FS As FileStream
