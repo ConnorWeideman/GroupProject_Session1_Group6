@@ -3,7 +3,7 @@ Option Explicit On
 Option Infer Off
 
 ' *****************************************************************
-' Team Number: assigned to team 6
+' Team Number: 6
 ' Team Member 1 Details: Weideman, C (220145487)
 ' Team Member 2 Details: Gerber, JD (220052458)
 ' Team Member 3 Details: Karner, Michael (217028123)

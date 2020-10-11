@@ -1,11 +1,11 @@
 ﻿' *****************************************************************
-' Team Number: assigned to team 6
+' Team Number: 6
 ' Team Member 1 Details: Weideman, C (220145487)
 ' Team Member 2 Details: Gerber, JD (220052458)
 ' Team Member 3 Details: Karner, Michael (217028123)
 ' Team Member 4 Details: Orlando, DA (220004186)
 ' Practical: Team Project
-' Class name: Form1
+' Class name: Disease
 ' *****************************************************************
 Option Strict On
 Option Explicit On
@@ -65,15 +65,15 @@ Public MustInherit Class Disease
     End Function '</CalcMortalityRate>
     Protected Function CalcInfected() As Integer
         'calculates the number of infected individuals as each day the infected individuals is incremented but never decreased when individuals die or recover
-        _infected -= _deaths + _recovered
+        _infected -= MakePos(_deaths + _recovered)
         Return Infected
     End Function '</CaclInfected>
-    Private Function MakePos(num As Integer) As Integer
+    Private Function MakePos(num As Integer) As Integer 'Ensures that a number is positive
         If num < 0 Then 'If negative
             num = CInt(num / -1) 'Make positive
         End If
 
         Return num
     End Function '</MakePos>
-    Public MustOverride Function display() As String
+    Public MustOverride Function display() As String 'output
 End Class '</Disease>
