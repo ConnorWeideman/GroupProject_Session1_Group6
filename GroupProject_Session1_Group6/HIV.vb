@@ -1,4 +1,16 @@
-﻿Option Strict On
+﻿
+' *****************************************************************
+' Team Number: 6
+' Team Member 1 Details: Gerber, J 220052458
+' Team Member 2 Details: Orlando, D 220004186
+' Team Member 3 Details: Karner, M 217028123
+' Team Member 4 Details: Weideman, C 220145487
+' Practical: Team Project
+' Class name: HIV
+' *****************************************************************
+
+
+Option Strict On
 Option Explicit On
 Option Infer Off
 
@@ -46,6 +58,16 @@ Public Class HIV
     End Property
 
     Public Overrides Function display() As String
-        Throw New NotImplementedException()
+        Dim temp as String
+
+        temp = "Common Symptoms: " & vbNewLine & "Fever, Sore Throat, Headache, Fatigue" & vbNewLine _
+            & "Currect Infected Patients: " & _infected & vbNewLine _
+            & "Deaths for HIV: " & _deaths & vbNewLine _
+            & "Recovered from HIV: " & _recovered & vbNewLine _
+            & "HIV Patients that have aids: " & _haveAids & vbNewLine _
+            & "Infected by blood contact: " & _blood & vbNewLine _
+            & "Infected by sexual contacts: " & _sexual & vbNewLine
+
+        Return temp
     End Function
 End Class
